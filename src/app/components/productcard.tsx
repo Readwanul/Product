@@ -7,11 +7,10 @@ interface ProductProps {
   name: string;
   price: number;
   image: string;
-  category: string;
   short_desc: string;
 }
 
-const ProductCard = ({ unique_id,name, price, image, category, short_desc }: ProductProps) => {
+const ProductCard = ({ unique_id,name, price, image, short_desc }: ProductProps) => {
   const dispatch = useAppDispatch();
 
   const handleAddToCart = () => {

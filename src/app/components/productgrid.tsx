@@ -36,7 +36,6 @@ export default function ProductGrid() {
             name={product.name}
             price={product.price}
             image={product.product_images[0]?.name || ""}
-            category={product.category.name}
             short_desc={product.short_desc}
           />
         ))}
