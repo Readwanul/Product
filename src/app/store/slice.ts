@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// Define a type for a single cart item
+
 interface CartItem {
   unique_id: string;
   name: string;

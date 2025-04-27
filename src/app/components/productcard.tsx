@@ -14,8 +14,8 @@ const ProductCard = ({ unique_id,name, price, image, short_desc }: ProductProps)
   const dispatch = useAppDispatch();
 
   const handleAddToCart = () => {
-    dispatch(addToCart({ unique_id,name, quantity: 1 ,price,image})); // Dispatch the action to add item to cart
-    alert(`Added ${name} to cart!`); // Optionally show an alert or a toast message
+    dispatch(addToCart({ unique_id,name, quantity: 1 ,price,image})); 
+    alert(`Added ${name} to cart!`); 
   };
   return (
     <div className="bg-white rounded-xl shadow-md mx-10 p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:bg-blue-100 w-full max-w-xs ">

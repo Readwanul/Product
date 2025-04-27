@@ -2,8 +2,6 @@
 import React from "react";
 import HeaderMain from "./components/header";
 import ProductGrid from "./components/productgrid";
-import Link from "next/link";
-
 
 export default function Home() {
 
