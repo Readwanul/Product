@@ -2,7 +2,11 @@
 
 import { useAppSelector, useAppDispatch } from "../store/hook";
 import { removeFromCart, clearCart } from "../store/slice"; 
+import { minusfromCart,addToCart } from "../store/slice";
 import Image from "next/image";
+import { ShoppingBag } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const CartList = () => {
   const dispatch = useAppDispatch();
@@ -18,10 +22,18 @@ const CartList = () => {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-2xl font-bold mb-6 text-center">Shopping Cart</h1>
 
       {cartItems.length === 0 ? (
-        <p className="text-center text-gray-600">Your cart is empty!</p>
+        <div className="container px-4 py-16 md:px-6 text-center">
+        <ShoppingBag className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
+        <h2 className="text-2xl font-bold mb-2">Your cart is empty</h2>
+        <p className="text-muted-foreground mb-6">Looks like you haven't added anything to your cart yet.</p>
+        <Link href="/products">
+          <Button className="bg-teal-600 hover:bg-teal-700">
+            Start Shopping
+          </Button>
+        </Link>
+      </div>
       ) : (
         <div className="space-y-6">
           {cartItems.map((item) => (

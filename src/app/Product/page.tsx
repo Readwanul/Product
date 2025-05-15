@@ -1,8 +1,7 @@
 
 import React from "react";
-import HeaderMain from "./components/header";
-import ProductGrid from "./components/productgrid";
-import Hero from "./components/Hero";
+import HeaderMain from "../components/header";
+import ProductGrid from "../components/productgrid";
 
 export default function Home() {
 
@@ -11,7 +10,6 @@ export default function Home() {
       <div className="sticky top-0 z-50 bg-white">
       <HeaderMain />
       </div>
-      <Hero />
       <ProductGrid />  
 
     </div>

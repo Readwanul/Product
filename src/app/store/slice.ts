@@ -33,6 +33,17 @@ const cartSlice = createSlice({
         state.cartItems.push({ unique_id,name, quantity, price,image });
       }
     },
+    minusfromCart(state, action: PayloadAction<{ unique_id: string }>) {
+      const { unique_id } = action.payload;
+      const existingItem = state.cartItems.find(item => item.unique_id === unique_id);
+      if (existingItem) {
+        if (existingItem.quantity > 1) {
+          existingItem.quantity -= 1;
+        } else {
+          state.cartItems = state.cartItems.filter(item => item.unique_id !== unique_id);
+        }
+      }
+    },
     removeFromCart(state, action: PayloadAction<{ unique_id: string }>) {
       const { unique_id } = action.payload;
 
@@ -44,5 +55,5 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart,minusfromCart } = cartSlice.actions;
 export default cartSlice.reducer;
