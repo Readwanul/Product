@@ -67,17 +67,20 @@ const Checkout = () => {
   if (cartItems.length === 0) return null;
 
   return (
-    <div className="container px-4 py-8 md:px-6">
-      <h1 className="text-3xl font-bold mb-6">Checkout</h1>
+  <section className="px-4 py-8 sm:px-6 md:px-10">
+    <div className="max-w-6xl mx-auto">
+      <h1 className="text-3xl font-bold mb-8 text-center md:text-left">
+        Checkout
+      </h1>
 
       <form onSubmit={handleSubmit}>
-        <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 md:gap-x-12">
           {/* Shipping Info */}
           <div>
             <h2 className="text-xl font-semibold mb-4">Shipping Information</h2>
-            <div className="grid gap-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
+            <div className="space-y-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1">
                   <Label htmlFor="firstName">First Name</Label>
                   <Input
                     id="firstName"
@@ -87,7 +90,7 @@ const Checkout = () => {
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <Label htmlFor="lastName">Last Name</Label>
                   <Input
                     id="lastName"
@@ -98,7 +101,7 @@ const Checkout = () => {
                   />
                 </div>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
@@ -109,7 +112,7 @@ const Checkout = () => {
                   required
                 />
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <Label htmlFor="address">Address</Label>
                 <Input
                   id="address"
@@ -119,8 +122,8 @@ const Checkout = () => {
                   required
                 />
               </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1">
                   <Label htmlFor="city">City</Label>
                   <Input
                     id="city"
@@ -130,7 +133,7 @@ const Checkout = () => {
                     required
                   />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <Label htmlFor="zipCode">ZIP Code</Label>
                   <Input
                     id="zipCode"
@@ -141,7 +144,7 @@ const Checkout = () => {
                   />
                 </div>
               </div>
-              <div className="space-y-2">
+              <div className="space-y-1">
                 <Label htmlFor="country">Country</Label>
                 <Input
                   id="country"
@@ -157,56 +160,55 @@ const Checkout = () => {
           {/* Order Summary */}
           <div>
             <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
-            <div className="bg-white rounded-lg shadow-sm p-6 border">
+            <div className="bg-white rounded-xl shadow-md p-6 border">
               <div className="divide-y">
                 {cartItems.map((item) => (
                   <div
                     key={item.unique_id}
-                    className="flex justify-between py-2"
+                    className="flex justify-between items-center py-3"
                   >
                     <div>
                       <span className="font-medium">{item.name}</span>
-                      <span className="text-muted-foreground">
-                        {' '}
-                        × {item.quantity}
-                      </span>
+                      <span className="text-gray-500"> × {item.quantity}</span>
                     </div>
                     <span>৳{(item.price * item.quantity).toFixed(2)}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="pt-4 mt-4 border-t">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Subtotal</span>
+              <div className="pt-4 mt-4 border-t space-y-3">
+                <div className="flex justify-between text-sm text-gray-500">
+                  <span>Subtotal</span>
                   <span>৳{cartTotal.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between mt-2">
-                  <span className="text-muted-foreground">Shipping</span>
+                <div className="flex justify-between text-sm text-gray-500">
+                  <span>Shipping</span>
                   <span>Free</span>
                 </div>
-                <div className="flex justify-between mt-4 pt-4 border-t font-semibold text-lg">
+                <div className="flex justify-between pt-4 border-t text-lg font-semibold">
                   <span>Total</span>
                   <span>৳{cartTotal.toFixed(2)}</span>
                 </div>
               </div>
 
               <Button
-                className="w-full mt-6 bg-teal-600 hover:bg-teal-700 h-12"
-                disabled={loading}
                 type="submit"
+                disabled={loading}
+                className="w-full mt-6 bg-teal-600 hover:bg-teal-700 h-12 text-base"
               >
                 {loading ? (
-                  <span className="flex items-center">Processing...</span>
+                  <span className="flex items-center justify-center">
+                    Processing...
+                  </span>
                 ) : (
-                  <span className="flex items-center">
+                  <span className="flex items-center justify-center">
                     <CreditCard className="mr-2 h-5 w-5" />
                     Place Order
                   </span>
                 )}
               </Button>
 
-              <p className="text-xs text-center text-muted-foreground mt-4">
+              <p className="text-xs text-center text-gray-400 mt-4">
                 By placing your order, you agree to our Terms of Service and
                 Privacy Policy.
               </p>
@@ -215,7 +217,9 @@ const Checkout = () => {
         </div>
       </form>
     </div>
-  );
+  </section>
+);
+
 };
 
 export default Checkout;
