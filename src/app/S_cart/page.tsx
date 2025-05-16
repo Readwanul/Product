@@ -1,13 +1,7 @@
 'use client';
 
 import { useAppSelector, useAppDispatch } from "../store/hook";
-import {
-  removeFromCart,
-  clearCart,
-  minusfromCart,
-  addToCart,
-} from "../store/slice";
-import Image from "next/image";
+import {clearCart} from "../store/slice";
 import { ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -17,10 +11,10 @@ const CartList = () => {
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector((state) => state.counter.cartItems);
 
-  const cartTotal = cartItems.reduce(
-    (total, item) => total + item.price,
-    0
-  );
+const cartTotal = cartItems.reduce(
+  (total, item) => total + item.price * item.quantity,
+  0
+);
 
   const handleClearCart = () => {
     if (confirm('Are you sure you want to clear your cart?')) {
@@ -34,7 +28,7 @@ const CartList = () => {
         <ShoppingBag className="mx-auto h-16 w-16 text-muted-foreground mb-4" />
         <h2 className="text-2xl font-bold mb-2">Your cart is empty</h2>
         <p className="text-muted-foreground mb-6">
-          Looks like you haven't added anything to your cart yet.
+          Looks like you haven&apos;t added anything to your cart yet.
         </p>
         <Link href="/products">
           <Button className="bg-teal-600 hover:bg-teal-700">Start Shopping</Button>
@@ -101,7 +95,7 @@ const CartList = () => {
                 <span>৳{cartTotal.toFixed(2)}</span>
               </div>
 
-              <Link href="/checkout">
+              <Link href="/Checkout">
                 <Button className="w-full mt-6 bg-teal-600 hover:bg-teal-700">
                   Proceed to Checkout
                 </Button>

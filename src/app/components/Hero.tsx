@@ -1,4 +1,4 @@
-
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
@@ -23,7 +23,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="mx-auto lg:mx-0 overflow-hidden rounded-lg">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=800&q=80"
               width="500"
               height="500"

@@ -2,6 +2,7 @@ import { useAppDispatch } from "../store/hook";
 import { addToCart, minusfromCart, removeFromCart } from "../store/slice";
 import { Button } from '@/components/ui/button';
 import { Trash, Plus, Minus } from 'lucide-react';
+import Image from "next/image";
 
 interface CartItemProps {
   unique_id: string;
@@ -37,10 +38,12 @@ const CartItem = ({
     <div className="flex flex-col sm:flex-row items-center gap-4 py-6">
       {/* Image */}
       <div className="w-full sm:w-24 h-24 overflow-hidden rounded-md bg-muted">
-        <img
+        <Image
           src={`https://admin.refabry.com/storage/product/${image}`}
           alt={name}
           className="w-full h-full object-cover"
+          width={100}
+          height={100}
         />
       </div>
 

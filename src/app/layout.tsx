@@ -3,6 +3,7 @@
 import './globals.css';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import { Toaster } from '@/components/ui/sonner';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -11,6 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Provider store={store}>
           {children}
         </Provider>
+        <Toaster />
       </body>
     </html>
   );
