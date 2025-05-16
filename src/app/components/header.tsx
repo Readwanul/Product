@@ -25,28 +25,30 @@ const HeaderMain = () => {
         }`}
       >
         <Link
-          href="#"
+          href="/"
           className="px-3 py-2 border border-black rounded-md hover:bg-gray-400 hover:text-black"
         >
           Home
         </Link>
         <Link
-          href="#"
+          href="/Product"
           className="px-3 py-2 border border-black rounded-md hover:bg-gray-400 hover:text-black"
         >
           Product
         </Link>
       </nav>
-      <div className="p-2 border border-black rounded-3xl hover:bg-gray-400 hover:text-black">
+      
         <Link href="/S_cart">
+        <div className="p-2 border border-black rounded-3xl hover:bg-gray-400 hover:text-black">
         <div className="relative w-6 h-6"> {/* Controls the icon and badge area size */}
         <HiOutlineShoppingBag className="text-[24px]" />
         <div className="bg-red-800 rounded-full absolute -top-1 -right-1 w-4 h-4 text-[10px] text-white grid place-items-center">
         {cartCount}
         </div>
       </div>
+      </div>
         </Link>
-    </div>
+    
 
     </header>
   );

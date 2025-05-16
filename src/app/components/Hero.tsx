@@ -15,7 +15,7 @@ const Hero = () => {
               Discover our curated collection of premium products designed to enhance your lifestyle.
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
-              <Link href="/products">
+              <Link href="/Product">
                 <Button size="lg" className="bg-teal-600 hover:bg-teal-700">
                   Shop Now
                 </Button>

@@ -30,7 +30,7 @@ const cartTotal = cartItems.reduce(
         <p className="text-muted-foreground mb-6">
           Looks like you haven&apos;t added anything to your cart yet.
         </p>
-        <Link href="/products">
+        <Link href="/Product">
           <Button className="bg-teal-600 hover:bg-teal-700">Start Shopping</Button>
         </Link>
       </div>
